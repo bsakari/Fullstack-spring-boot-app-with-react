@@ -17,7 +17,8 @@ public class StudentController {
                 new Student(2L, "King2", "king2@gmail.com", Gender.MALE),
                 new Student(3L, "King3", "king3@gmail.com", Gender.MALE),
                 new Student(4L, "King4", "king4@gmail.com", Gender.MALE),
-                new Student(5L, "Jane", "jane@gmail.com", Gender.FEMALE)
+                new Student(5L, "Jane", "jane@gmail.com", Gender.FEMALE),
+                new Student(6L, "Mary", "mary@gmail.com", Gender.FEMALE)
         );
         return students;
     }
