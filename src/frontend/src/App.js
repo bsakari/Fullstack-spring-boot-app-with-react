@@ -1,7 +1,9 @@
-import {DesktopOutlined, FileOutlined, PieChartOutlined, TeamOutlined, UserOutlined} from '@ant-design/icons';
-import {Breadcrumb, Empty, Layout, Menu, Spin, Table, theme} from 'antd';
+import {DesktopOutlined, DownloadOutlined, FileOutlined, PieChartOutlined,
+    TeamOutlined, UserAddOutlined, UserOutlined} from '@ant-design/icons';
+import {Breadcrumb, Button, Empty, Layout, Menu, Spin, Table, theme} from 'antd';
 import {useState, useEffect} from "react";
 import {getAllStudents} from "./client";
+import StudentDrawerForm from "./StudentDrawerForm";
 
 const { Header, Content, Footer, Sider } = Layout;
 function getItem(label, key, icon, children) {
@@ -51,14 +53,14 @@ const columns = [
 const antIcon = <Spin />
 
 const App = () => {
+    const [fetching,setFetching] = useState(true);
     const [collapsed, setCollapsed] = useState(false);
+    const [students,setStudents] = useState([]);
+    const [showDrawer, setShowDrawer] = useState(false);
     const {
         token: { colorBgContainer },
     } = theme.useToken();
 
-    // Fetching students from the backend
-    const [students,setStudents] = useState([]);
-    const [fetching,setFetching] = useState(true);
     const fetchStudents = ()=>{
         return getAllStudents().then(res=>res.json()).then(data=>{
             setStudents(data)
@@ -96,9 +98,13 @@ const App = () => {
                         {/*Display students*/}
                         {checkFetching()}
                         {/*{checkStudentsCount()}*/}
-                        <Table rowKey={(student)=>student.id} pagination={{ pageSize: 50 }} scroll={{ y: 240 }}
-                            bordered
-                            title={() => 'Student'} dataSource={students} columns={columns} />
+                        <StudentDrawerForm setShowDrawer={setShowDrawer} showDrawer={showDrawer} fetchStudents={fetchStudents}/>
+                        <Table rowKey={(student)=>student.id} pagination={{ pageSize: 50 }} scroll={{ y: 240 }} bordered
+                               title={() => <Button onClick={()=>setShowDrawer(!showDrawer)}
+                                                    type="primary" shape="round" icon={<UserAddOutlined />} size={'middle'}>
+                                Add New Student
+                            </Button>
+                        } dataSource={students} columns={columns} />
                     </div>
                 </Content>
                 <Footer style={{ textAlign: 'center',}}>
