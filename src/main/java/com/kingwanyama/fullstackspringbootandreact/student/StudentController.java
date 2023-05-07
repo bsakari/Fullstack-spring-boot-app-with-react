@@ -18,6 +18,14 @@ public class StudentController {
 
     @PostMapping
     public void addStudent(@RequestBody Student student){
+        //Check if email is taken
         studentService.addStudent(student);
     }
+
+    @DeleteMapping(path = "{studentId}")
+    void deleteStudent(@PathVariable("studentId") Long studentId){
+        //Check if student exists
+        studentService.deleteStudent(studentId);
+    }
+
 }
