@@ -49,7 +49,7 @@ const removeStudent = (studentId, callback) => {
         err.response.json().then(res => {
             console.log(res);
             errorNotification(
-                `There was an ${res.error}`,
+                `There was a ${res.error} Error`,
                 `${res.message}`
             )
         });
