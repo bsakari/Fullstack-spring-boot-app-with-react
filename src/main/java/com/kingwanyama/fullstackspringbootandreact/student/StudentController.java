@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "api/v1/students")
@@ -24,7 +25,6 @@ public class StudentController {
 
     @DeleteMapping(path = "{studentId}")
     void deleteStudent(@PathVariable("studentId") Long studentId){
-        //Check if student exists
         studentService.deleteStudent(studentId);
     }
 

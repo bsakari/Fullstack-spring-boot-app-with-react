@@ -49,8 +49,8 @@ const removeStudent = (studentId, callback) => {
         err.response.json().then(res => {
             console.log(res);
             errorNotification(
-                "There was an issue",
-                `${res.message} [${res.status}] [${res.error}]`
+                `There was an ${res.error}`,
+                `${res.message}`
             )
         });
     })
@@ -120,8 +120,13 @@ const App = () => {
     const fetchStudents = ()=>{
         return getAllStudents().then(res=>res.json()).then(data=>{
             setStudents(data)
-            setFetching(false);
-        });
+        }).catch(err=>{
+            console.log(err.response);
+            err.response.json().then(res=>{
+                console.log(res);
+                errorNotification(`There was ${res.error}`,res.message)
+            });
+        }).finally(()=>setFetching(false));
     }
     useEffect(()=>{
         fetchStudents()

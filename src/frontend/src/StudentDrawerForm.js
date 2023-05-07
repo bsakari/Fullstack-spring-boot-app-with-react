@@ -29,9 +29,9 @@ function StudentDrawerForm({showDrawer, setShowDrawer, fetchStudents}) {
             err.response.json().then(res => {
                 console.log(res);
                 errorNotification(
-                    "There was an issue",
-                    `${res.message} [${res.status}] [${res.error}]`,
-                    "bottomLeft"
+                    `There was a ${res.error} Error`,
+                    `${res.message}`,
+                    "topRight"
                 )
             });
         }).finally(() => {
