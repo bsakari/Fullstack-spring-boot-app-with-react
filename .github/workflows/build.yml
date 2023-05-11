@@ -16,6 +16,9 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 14.x, 16.x, 18.x, 20.x ]
     services:
       postgres:
         image: postgres:15.2
