@@ -98,7 +98,7 @@
 						<version>2.5.2</version>
 						<configuration>
 							<from>
-								<image>openjdk:15</image>
+								<image>openjdk:17</image>
 							</from>
 							<container>
 								<ports>
@@ -113,7 +113,7 @@
 								<phase>package</phase>
 								<configuration>
 									<to>
-										<image>docker.io/amigoscode/${app.image.name}:${app.image.tag}</image>
+										<image>docker.io/kingwanyama/${app.image.name}:${app.image.tag}</image>
 									</to>
 								</configuration>
 								<goals>
@@ -125,7 +125,7 @@
 								<phase>package</phase>
 								<configuration>
 									<to>
-										<image>docker.io/amigoscode/${app.image.name}:latest</image>
+										<image>docker.io/kingwanyama/${app.image.name}:latest</image>
 									</to>
 								</configuration>
 								<goals>
@@ -165,7 +165,7 @@
 								<phase>package</phase>
 								<configuration>
 									<to>
-										<image>amigoscode/${app.image.name}:${app.image.tag}</image>
+										<image>kingwanyama/${app.image.name}:${app.image.tag}</image>
 									</to>
 								</configuration>
 								<goals>
@@ -177,7 +177,7 @@
 								<phase>package</phase>
 								<configuration>
 									<to>
-										<image>amigoscode/${app.image.name}:latest</image>
+										<image>kingwanyama/${app.image.name}:latest</image>
 									</to>
 								</configuration>
 								<goals>
@@ -213,8 +213,8 @@
 									<goal>install-node-and-npm</goal>
 								</goals>
 								<configuration>
-									<nodeVersion>v15.4.0</nodeVersion>
-									<npmVersion>7.3.0</npmVersion>
+									<nodeVersion>v12.16.3</nodeVersion>
+									<npmVersion>6.14.4</npmVersion>
 								</configuration>
 							</execution>
 							<execution>
