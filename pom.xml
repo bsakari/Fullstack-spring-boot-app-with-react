@@ -217,14 +217,19 @@
 						<configuration>
 							<nodeVersion>v14.15.4</nodeVersion>
 							<downloadRoot>https://nodejs.org/dist/</downloadRoot>
+							<workingDirectory>src/frontend</workingDirectory>
 						</configuration>
 						<executions>
 							<execution>
-								<id>install-node-and-npm</id>
+								<id>install node and npm</id>
 								<goals>
 									<goal>install-node-and-npm</goal>
 								</goals>
 								<phase>generate-resources</phase>
+								<configuration>
+									<nodeVersion>v15.4.0</nodeVersion>
+									<npmVersion>7.3.0</npmVersion>
+								</configuration>
 							</execution>
 							<execution>
 								<id>set-npm-registry</id>
@@ -234,6 +239,15 @@
 								<phase>generate-resources</phase>
 								<configuration>
 									<arguments>config set registry=https://registry.npmjs.org/</arguments>
+								</configuration>
+							</execution>
+							<execution>
+								<id>npm run build</id>
+								<goals>
+									<goal>npm</goal>
+								</goals>
+								<configuration>
+									<arguments>run build</arguments>
 								</configuration>
 							</execution>
 						</executions>
