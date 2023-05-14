@@ -215,38 +215,25 @@
 						<artifactId>frontend-maven-plugin</artifactId>
 						<version>1.12.1</version>
 						<configuration>
-							<nodeVersion>v10.16.0</nodeVersion>
-							<npmVersion>6.9.0</npmVersion>
-							<!--配置公网的镜像地址-->
-							<nodeDownloadRoot>http://npm.taobao.org/mirrors/node/</nodeDownloadRoot>
-							<npmDownloadRoot>http://npm.taobao.org/mirrors/npm/</npmDownloadRoot>
-							<!--配置公网的npm仓库地址-->
-							<npmRegistryURL>http://npm.thunisoft.com</npmRegistryURL>
-							<!--前端资源所在路径（每个项目可能不一样，可以固定文件夹）-->
-							<workingDirectory>src/frontend/</workingDirectory>
+							<nodeVersion>v14.15.4</nodeVersion>
+							<downloadRoot>https://nodejs.org/dist/</downloadRoot>
 						</configuration>
 						<executions>
-							<!--执行npm install 命令-->
 							<execution>
-								<id>npm install</id>
-								<phase>generate-sources</phase>
+								<id>install-node-and-npm</id>
 								<goals>
-									<goal>npm</goal>
+									<goal>install-node-and-npm</goal>
 								</goals>
-								<configuration>
-									<arguments>install</arguments>
-								</configuration>
-							</execution>
-							<!--前端资源打包过程-->
-							<!--执行npm run build-->
-							<execution>
-								<id>npm run build</id>
 								<phase>generate-resources</phase>
+							</execution>
+							<execution>
+								<id>set-npm-registry</id>
 								<goals>
 									<goal>npm</goal>
 								</goals>
+								<phase>generate-resources</phase>
 								<configuration>
-									<arguments>run build</arguments>
+									<arguments>config set registry=https://registry.npmjs.org/</arguments>
 								</configuration>
 							</execution>
 						</executions>
