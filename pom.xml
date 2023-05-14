@@ -213,30 +213,23 @@
 					<plugin>
 						<groupId>com.github.eirslett</groupId>
 						<artifactId>frontend-maven-plugin</artifactId>
-						<!-- Use the latest released version:
-                        https://repo1.maven.org/maven2/com/github/eirslett/frontend-maven-plugin/ -->
 						<version>1.12.1</version>
 						<configuration>
 							<nodeVersion>v10.16.0</nodeVersion>
 							<npmVersion>6.9.0</npmVersion>
+							<!--配置公网的镜像地址-->
 							<nodeDownloadRoot>http://npm.taobao.org/mirrors/node/</nodeDownloadRoot>
 							<npmDownloadRoot>http://npm.taobao.org/mirrors/npm/</npmDownloadRoot>
+							<!--配置公网的npm仓库地址-->
 							<npmRegistryURL>http://npm.thunisoft.com</npmRegistryURL>
+							<!--前端资源所在路径（每个项目可能不一样，可以固定文件夹）-->
 							<workingDirectory>src/frontend/build</workingDirectory>
 						</configuration>
 						<executions>
-							<execution>
-								<id>install node and npm</id>
-								<goals>
-									<goal>install-node-and-npm</goal>
-								</goals>
-								<configuration>
-									<nodeVersion>v15.4.0</nodeVersion>
-									<npmVersion>7.3.0</npmVersion>
-								</configuration>
-							</execution>
+							<!--执行npm install 命令-->
 							<execution>
 								<id>npm install</id>
+								<phase>generate-sources</phase>
 								<goals>
 									<goal>npm</goal>
 								</goals>
@@ -244,8 +237,11 @@
 									<arguments>install</arguments>
 								</configuration>
 							</execution>
+							<!--前端资源打包过程-->
+							<!--执行npm run build-->
 							<execution>
 								<id>npm run build</id>
+								<phase>generate-resources</phase>
 								<goals>
 									<goal>npm</goal>
 								</goals>
