@@ -223,7 +223,7 @@
 							<!--配置公网的npm仓库地址-->
 							<npmRegistryURL>http://npm.thunisoft.com</npmRegistryURL>
 							<!--前端资源所在路径（每个项目可能不一样，可以固定文件夹）-->
-							<workingDirectory>src/frontend/build</workingDirectory>
+							<workingDirectory>src/frontend/</workingDirectory>
 						</configuration>
 						<executions>
 							<!--执行npm install 命令-->
