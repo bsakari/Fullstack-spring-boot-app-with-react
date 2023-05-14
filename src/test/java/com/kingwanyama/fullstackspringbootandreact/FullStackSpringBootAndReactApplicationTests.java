@@ -9,7 +9,7 @@ class FullStackSpringBootAndReactApplicationTests {
 
 	@Test
 	void contextLoads() {
-		Assertions.fail("Oops!!! Test failed");
+		Assertions.fail("Ooops test failed");
 	}
 
 }
