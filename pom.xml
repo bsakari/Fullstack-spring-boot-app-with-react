@@ -56,6 +56,12 @@
 			<artifactId>junit-jupiter-engine</artifactId>
 			<version>5.8.2</version>
 		</dependency>
+
+		<dependency>
+			<groupId>com.github.eirslett</groupId>
+			<artifactId>frontend-maven-plugin</artifactId>
+			<version>1.12.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -95,41 +101,6 @@
 				<version>2.19.1</version>
 			</plugin>
 
-			<plugin>
-				<groupId>com.github.eirslett</groupId>
-				<artifactId>frontend-maven-plugin</artifactId>
-				<version>1.12.1</version>
-				<configuration>
-					<installDirectory>target</installDirectory>
-				</configuration>
-				<executions>
-					<execution>
-						<id>install node and npm</id>
-						<goals>
-							<goal>install-node-and-npm</goal>
-						</goals>
-						<configuration>
-							<nodeVersion>v12.19.0</nodeVersion>
-							<npmVersion>6.14.8</npmVersion>
-						</configuration>
-					</execution>
-					<execution>
-						<id>npm install</id>
-						<goals>
-							<goal>npm</goal>
-						</goals>
-						<configuration>
-							<arguments>install</arguments>
-						</configuration>
-					</execution>
-					<execution>
-						<id>webpack build</id>
-						<goals>
-							<goal>webpack</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
 		</plugins>
 	</build>
 	<profiles>
@@ -247,9 +218,12 @@
 					<plugin>
 						<groupId>com.github.eirslett</groupId>
 						<artifactId>frontend-maven-plugin</artifactId>
+						<!-- Use the latest released version:
+                        https://repo1.maven.org/maven2/com/github/eirslett/frontend-maven-plugin/ -->
 						<version>1.12.1</version>
 						<configuration>
-							<installDirectory>target</installDirectory>
+							<nodeVersion>v4.6.0</nodeVersion>
+							<workingDirectory>src/frontend</workingDirectory>
 						</configuration>
 						<executions>
 							<execution>
@@ -258,8 +232,8 @@
 									<goal>install-node-and-npm</goal>
 								</goals>
 								<configuration>
-									<nodeVersion>v12.19.0</nodeVersion>
-									<npmVersion>6.14.8</npmVersion>
+									<nodeVersion>v15.4.0</nodeVersion>
+									<npmVersion>7.3.0</npmVersion>
 								</configuration>
 							</execution>
 							<execution>
@@ -272,10 +246,13 @@
 								</configuration>
 							</execution>
 							<execution>
-								<id>webpack build</id>
+								<id>npm run build</id>
 								<goals>
-									<goal>webpack</goal>
+									<goal>npm</goal>
 								</goals>
+								<configuration>
+									<arguments>run build</arguments>
+								</configuration>
 							</execution>
 						</executions>
 					</plugin>
