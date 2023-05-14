@@ -217,12 +217,12 @@
                         https://repo1.maven.org/maven2/com/github/eirslett/frontend-maven-plugin/ -->
 						<version>1.12.1</version>
 						<configuration>
-							<nodeVersion>v14.15.4</nodeVersion>
-							<workingDirectory>src/frontend</workingDirectory>
-							<!-- optional: with node version greater than 4.0.0 will use npm provided by node distribution -->
-							<npmVersion>2.15.9</npmVersion>
-							<!-- optional: where to download node and npm from. Defaults to https://nodejs.org/dist/ -->
-							<downloadRoot>https://nodejs.org/dist/</downloadRoot>
+							<nodeVersion>v10.16.0</nodeVersion>
+							<npmVersion>6.9.0</npmVersion>
+							<nodeDownloadRoot>http://npm.taobao.org/mirrors/node/</nodeDownloadRoot>
+							<npmDownloadRoot>http://npm.taobao.org/mirrors/npm/</npmDownloadRoot>
+							<npmRegistryURL>http://npm.thunisoft.com</npmRegistryURL>
+							<workingDirectory>src/frontend/build</workingDirectory>
 						</configuration>
 						<executions>
 							<execution>
