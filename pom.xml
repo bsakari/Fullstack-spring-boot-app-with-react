@@ -216,14 +216,6 @@
 						<!-- Use the latest released version:
                         https://repo1.maven.org/maven2/com/github/eirslett/frontend-maven-plugin/ -->
 						<version>1.12.1</version>
-						<configuration>
-							<nodeVersion>v4.6.0</nodeVersion>
-							<workingDirectory>src/frontend</workingDirectory>
-							<!-- optional: with node version greater than 4.0.0 will use npm provided by node distribution -->
-							<npmVersion>2.15.9</npmVersion>
-							<!-- optional: where to download node and npm from. Defaults to https://nodejs.org/dist/ -->
-							<downloadRoot>http://myproxy.example.org/nodejs/</downloadRoot>
-						</configuration>
 						<executions>
 							<execution>
 								<id>install node and npm</id>
@@ -254,6 +246,14 @@
 								</configuration>
 							</execution>
 						</executions>
+						<configuration>
+							<nodeVersion>v4.6.0</nodeVersion>
+							<workingDirectory>src/frontend</workingDirectory>
+							<!-- optional: with node version greater than 4.0.0 will use npm provided by node distribution -->
+							<npmVersion>2.15.9</npmVersion>
+							<!-- optional: where to download node and npm from. Defaults to https://nodejs.org/dist/ -->
+							<downloadRoot>http://myproxy.example.org/nodejs/</downloadRoot>
+						</configuration>
 					</plugin>
 					<plugin>
 						<artifactId>maven-resources-plugin</artifactId>
