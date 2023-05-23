@@ -193,6 +193,7 @@ const App = () => {
                 <Footer style={{ textAlign: 'center',}}>
 
                     <Divider plain>Soluspace ©2023 Created by King Wanyama</Divider>
+                    <Divider plain>...</Divider>
                 </Footer>
             </Layout>
         </Layout>
