@@ -1,6 +1,20 @@
 import {DesktopOutlined, DownloadOutlined, FileOutlined, PieChartOutlined,
     TeamOutlined, UserAddOutlined, UserOutlined} from '@ant-design/icons';
-import {Badge, Breadcrumb, Button, Empty, Layout, Menu, Popconfirm, Radio, Spin, Table, Tag, theme} from 'antd';
+import {
+    Badge,
+    Breadcrumb,
+    Button,
+    Divider,
+    Empty,
+    Layout,
+    Menu,
+    Popconfirm,
+    Radio,
+    Spin,
+    Table,
+    Tag,
+    theme
+} from 'antd';
 import "./App.css"
 import {useState, useEffect} from "react";
 import {getAllStudents,deleteStudent} from "./client";
@@ -177,7 +191,8 @@ const App = () => {
                     </div>
                 </Content>
                 <Footer style={{ textAlign: 'center',}}>
-                    Soluspace ©2023 Created by King Wanyama
+
+                    <Divider plain>Soluspace ©2023 Created by King Wanyama</Divider>
                 </Footer>
             </Layout>
         </Layout>
