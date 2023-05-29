@@ -19,14 +19,14 @@ public class StudentService {
 
     public void addStudent(Student student){
         if (studentRepository.selectExistsEmail(student.getEmail()))
-            throw new BadRequestException("Email exists");
+            throw new BadRequestException("Email "+student.getEmail()+" taken");
         studentRepository.save(student);
     }
 
     public void deleteStudent(Long id){
-        if (studentRepository.existsById(id))
-            studentRepository.deleteById(id);
-        throw new StudentNotFoundException("Student not found");
+        if (!studentRepository.existsById(id))
+            throw new StudentNotFoundException("Student not found");
+        studentRepository.deleteById(id);
     }
 
 }
